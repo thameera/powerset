@@ -1,0 +1,21 @@
+{
+  "name": "powerset",
+  "version": "0.0.0",
+  "description": "Small, express-like web framework for NodeJS",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thameera/powerset.git"
+  },
+  "author": "Thameera Senanayaka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thameera/powerset/issues"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha --reporter spec"
+  },
+  "homepage": "https://github.com/thameera/powerset",
+  "dependencies": {
+    "mocha": "^1.18.2"
+  }
+}
