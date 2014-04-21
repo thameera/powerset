@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/thameera/powerset",
   "dependencies": {
+    "lodash": "^2.4.1",
     "mocha": "^1.18.2"
   }
 }

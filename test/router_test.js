@@ -27,5 +27,37 @@ describe('Router', function() {
       ]
     });
   });
+
+  it('handles GET', function() {
+    var called = false;
+
+    this.router.route('GET', '/hi', function() { called = true; });
+
+    this.router.handle({ method: 'GET', url: '/hi' }, {});
+
+    assert(called, 'Should call GET route');
+  });
+
+  it('handles POST', function() {
+    var getCalled, postCalled;
+
+    this.router.route('GET', '/', function() { getCalled = true });
+    this.router.route('POST', '/', function() { postCalled = true });
+
+    this.router.handle({ method: 'POST', url: '/', }, {});
+
+    assert(!getCalled, 'Shouldn\'t call get route');
+    assert(postCalled, 'Should call post route');
+  });
+
+  it('handle not found', function() {
+    var self = this;
+
+    assert.throws(function() {
+      self.router.handle({ method: 'GET', url: '/' }, {});
+    }, function(err) {
+      return err.status === 404;
+    }, 'Should throw 404 error');
+  });
 });
 
