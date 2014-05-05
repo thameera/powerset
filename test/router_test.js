@@ -50,6 +50,17 @@ describe('Router', function() {
     assert(postCalled, 'Should call post route');
   });
 
+  it('handles all', function() {
+    var calledCount = 0;
+
+    this.router.all('/', function() { calledCount += 1; });
+
+    this.router.handle({ method: 'GET', url: '/', }, {});
+    this.router.handle({ method: 'POST', url: '/', }, {});
+
+    assert.equal(calledCount, 2);
+  });
+
   it('handle not found', function() {
     var self = this;
 
